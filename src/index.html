@@ -7,32 +7,46 @@
     <title>Pokédex-PokéAPI</title>
   </head>
   <body>
-    <header >
-      <div class="bg-[#DD1035]">
-        <div><img src="img/logo.png" alt="logo.png" /></div>
-
-        <div></div>
+    <header class="" >
+      <div class="bg-[#DD1035] flex justify-between items-center px-8 text-white font-bold">
+        <div>
+          <img src="img/logo.png" alt="logo.png" />
+        </div>
+        <form action="/buscar" method="get" class="flex flex-row items-center gap-2">
+          <label for="busqueda">Buscar:</label>
+          <input type="search" id="busqueda" name="busqueda" class="py-2 px-3 round rounded-full" placeholder="Ingrese nombre pokemón..." />
+          <button type="submit"><img width="48" height="48" class="w-8" src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/48/external-pokeball-video-games-those-icons-lineal-color-those-icons.png" alt="external-pokeball-video-games-those-icons-lineal-color-those-icons"/></button>
+        </form>
       </div>
 
-      <nav >
-        <ul class="flex flex-wrap">
-          <li><button>Ver Todos</button></li>
-          <li><button>Normal</button></li>
-          <li><button>Fire</button></li>
-          <li><button>Water</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
-          <li><button>Ver Todos</button></li>
+      <nav class="max-w-4xl lg:mx-auto mt-8">
+        <ul class="flex flex-wrap justify-center">
+          <li><button class="btn bg-slate-600 font-bold px-2 py-2 rounded rounded-full inline-block shadow-lg">VER TODOS</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">NORMAL</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">FIRE</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">WATER</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">GRASS</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">ELECTRIC</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">ICE</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">FIGHTING</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">POISON</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">GROUND</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">FLYNG</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">PSYCHIC</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">BUG</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">ROCK</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">GHOST</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">DARK</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">DRAGON</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">STEEL</button></li>
+          <li><button class="btn bg-violet-400 font-bold px-2 py-2 round rounded-full inline-block">FAIRY</button></li>
         </ul>
       </nav>
     </header>
+
+    <section>
+      <div></div>
+
+    </section>
   </body>
 </html>
