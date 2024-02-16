@@ -20,6 +20,9 @@ const btnDragon = document.querySelector('.btn_dragon');
 const btnSteel = document.querySelector('.btn_steel');
 const btnFairy = document.querySelector('.btn_fairy');
 
+const btnBusqueda = document.querySelector('.btn_buscar');
+const nombreBusqueda = document.querySelector('#busqueda');
+
 export {
   seccionContenedora,
   btnTodos,
@@ -41,4 +44,6 @@ export {
   btnDragon,
   btnSteel,
   btnFairy,
+  btnBusqueda,
+  nombreBusqueda,
 };

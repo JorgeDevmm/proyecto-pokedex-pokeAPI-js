@@ -18,10 +18,13 @@ import {
   btnDragon,
   btnSteel,
   btnFairy,
+  btnBusqueda,
+  nombreBusqueda,
 } from './referencias.js';
 
 import { mostrarPokemon } from './funciones/funciones.js';
 import { buscarTipoPokemon } from './funciones/funciones.js';
+import { buscarNombre } from './funciones/funciones.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   mostrarPokemon(493);
@@ -85,3 +88,10 @@ btnSteel.addEventListener('click', () => {
 btnFairy.addEventListener('click', () => {
   buscarTipoPokemon(493, 'fairy');
 });
+
+btnBusqueda.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  const nombre = nombreBusqueda.value;
+  buscarNombre(493, nombre);
+})
