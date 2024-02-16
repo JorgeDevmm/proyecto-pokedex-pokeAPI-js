@@ -7,46 +7,183 @@
     <title>Pokédex-PokéAPI</title>
   </head>
   <body>
-    <header class="" >
-      <div class="bg-[#DD1035] flex justify-between items-center px-8 text-white font-bold">
+    <header class="">
+      <div
+        class="bg-[#DD1035] flex justify-between items-center px-8 text-white font-bold"
+      >
         <div>
           <img src="src/img/logo.png" alt="logo.png" />
         </div>
-        <form action="/buscar" method="get" class="flex flex-row items-center gap-2">
+        <form
+          action="/buscar"
+          method="get"
+          class="flex flex-row items-center gap-2"
+        >
           <label for="busqueda">Buscar:</label>
-          <input type="search" id="busqueda" name="busqueda" class="py-2 px-3 round rounded-full" placeholder="Ingrese nombre pokemón..." />
-          <button type="submit"><img width="48" height="48" class="w-8" src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/48/external-pokeball-video-games-those-icons-lineal-color-those-icons.png" alt="external-pokeball-video-games-those-icons-lineal-color-those-icons"/></button>
+          <input
+            type="search"
+            id="busqueda"
+            name="busqueda"
+            class="py-2 px-3 round rounded-full"
+            placeholder="Ingrese nombre pokemón..."
+          />
+          <button type="submit">
+            <img
+              width="48"
+              height="48"
+              class="w-8"
+              src="https://img.icons8.com/external-those-icons-lineal-color-those-icons/48/external-pokeball-video-games-those-icons-lineal-color-those-icons.png"
+              alt="external-pokeball-video-games-those-icons-lineal-color-those-icons"
+            />
+          </button>
         </form>
       </div>
 
       <nav class="max-w-4xl lg:mx-auto mt-8">
         <ul class="flex flex-wrap justify-center gap-2">
-          <li><button class="btn bg-[#686569] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/todas.png" alt="all">  VER TODOS</button></li>
-          <li><button class="btn bg-[#98A5B3] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/normal.png" alt="rock"> NORMAL</button></li>
-          <li><button class="btn bg-[#FEA84A] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/fire.png" alt="rock"> FIRE</button></li>
-          <li><button class="btn bg-[#3599EF] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/water.png" alt="rock"> WATER</button></li>
-          <li><button class="btn bg-[#54D648] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/grass.png" alt="rock"> GRASS</button></li>
-          <li><button class="btn bg-[#FEE528] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/electric.png" alt="rock"> ELECTRIC</button></li>
-          <li><button class="btn bg-[#69E6D7] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/ice.png" alt="rock"> ICE</button></li>
-          <li><button class="btn bg-[#DE3363] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/fight.png" alt="rock"> FIGHTING</button></li>
-          <li><button class="btn bg-[#BD5BE2] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/poison.png" alt="rock"> POISON</button></li>
-          <li><button class="btn bg-[#F6712C] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/ground.png" alt="rock"> GROUND</button></li>
-          <li><button class="btn bg-[#97B6EF] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/flying.png" alt="rock"> FLYNG</button></li>
-          <li><button class="btn bg-[#FD6B73] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/psychic.png" alt="rock"> PSYCHIC</button></li>
-          <li><button class="btn bg-[#9DE013] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/bug.png" alt="rock"> BUG</button></li>
-          <li><button class="btn bg-[#DFCC8A] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/rock.png" alt="rock"> ROCK</button></li>
-          <li><button class="btn bg-[#3F60C6] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/ghost.png" alt="rock"> GHOST</button></li>
-          <li><button class="btn bg-[#504962] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/dark.png" alt="rock"> DARK</button></li>
-          <li><button class="btn bg-[#0069D9] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/dragon.png" alt="rock"> DRAGON</button></li>
-          <li><button class="btn bg-[#4A99B6] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/steel.png" alt="rock"> STEEL</button></li>
-          <li><button class="btn bg-[#FA91F6] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"><img class="w-8" src="src/img/fairy.png" alt="rock"> FAIRY</button></li>
+          <li>
+            <button
+              class="btn_todos btn bg-[#686569] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/todas.png" alt="all" /> VER TODOS
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_normal btn bg-[#98A5B3] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/normal.png" alt="rock" /> NORMAL
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_fire btn bg-[#FEA84A] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/fire.png" alt="rock" /> FIRE
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_water btn bg-[#3599EF] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/water.png" alt="rock" /> WATER
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_grass btn bg-[#54D648] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/grass.png" alt="rock" /> GRASS
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_electric btn bg-[#FEE528] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/electric.png" alt="rock" /> ELECTRIC
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_ice btn bg-[#69E6D7] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/ice.png" alt="rock" /> ICE
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_fighting btn bg-[#DE3363] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/fight.png" alt="rock" /> FIGHTING
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_poison btn bg-[#BD5BE2] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/poison.png" alt="rock" /> POISON
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_ground btn bg-[#F6712C] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/ground.png" alt="rock" /> GROUND
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_flyng btn bg-[#97B6EF] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/flying.png" alt="rock" /> FLYNG
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_psychic btn bg-[#FD6B73] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/psychic.png" alt="rock" /> PSYCHIC
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_bug btn bg-[#9DE013] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/bug.png" alt="rock" /> BUG
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_rock btn bg-[#DFCC8A] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/rock.png" alt="rock" /> ROCK
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_ghost btn bg-[#3F60C6] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/ghost.png" alt="rock" /> GHOST
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_dark btn bg-[#504962] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/dark.png" alt="rock" /> DARK
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_dragon btn bg-[#0069D9] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/dragon.png" alt="rock" /> DRAGON
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_steel btn bg-[#4A99B6] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/steel.png" alt="rock" /> STEEL
+            </button>
+          </li>
+          <li>
+            <button
+              class="btn_fairy btn bg-[#FA91F6] text-sm text-white font-bold pl-2 pr-3 py-1 round rounded-full flex justify-center items-center"
+            >
+              <img class="w-8" src="src/img/fairy.png" alt="rock" /> FAIRY
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
 
-    <h2 class="text-center font-mono font-bold mt-16">listado Pokemones</h2>
-    <section id="contenedor" class="mt-16 bg-blue-500 flex flex-wrap justify-center items-center gap-4 md:mx-auto p-8 max-w-2/3 w-3/5" >
-      <div class="card">
+    <h2 class="text-center text-4xl font-bold mt-16">Listado Pokemones</h2>
+    <section
+      id="contenedor"
+      class="mt-16 flex flex-wrap justify-center items-center gap-4 md:mx-auto p-8 max-w-2/3 w-3/5"
+    >
+      <!-- <div class="card">
         <div class="card__imagen">
           <img class="card__img" src="" alt="">
         </div>
@@ -54,9 +191,14 @@
           <p class="card__numero"></p>
           <p class="card__nombre"></p>
         </div>
-      </div>
-
+      </div> -->
     </section>
+
+    <footer class="bg-[#DD1035] text-white">
+      <p class="text-center p-4 font-bold">
+        Realizado por Jorge Luis Monzón Morales
+      </p>
+    </footer>
 
     <script src="src/js/app.js" type="module"></script>
   </body>
