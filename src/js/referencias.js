@@ -21,7 +21,9 @@ const btnSteel = document.querySelector('.btn_steel');
 const btnFairy = document.querySelector('.btn_fairy');
 
 const btnBusqueda = document.querySelector('.btn_buscar');
+const formularioBusqueda = document.querySelector('.formulario-busqueda');
 const nombreBusqueda = document.querySelector('#busqueda');
+
 
 export {
   seccionContenedora,
@@ -46,4 +48,5 @@ export {
   btnFairy,
   btnBusqueda,
   nombreBusqueda,
+  formularioBusqueda,
 };

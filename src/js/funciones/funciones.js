@@ -1,4 +1,4 @@
-import { seccionContenedora } from '../referencias.js';
+import { seccionContenedora, formularioBusqueda } from '../referencias.js';
 
 // Eventos
 // document.addEventListener('DOMContentLoaded', mostrarPokemon);
@@ -30,8 +30,8 @@ async function mostrarPokemon(cantidadPokemón) {
   const pokemonesPromesas = Array(cantidadPokemón)
     .fill() // Llenar el array con valores undefined
     .map((_, i) => obtenerPokemon(i + 1)); // Mapear cada índice a una llamada a obtenerPokemon con el índice incrementado en 1
-    // (en este caso, _ se usa para indicar que no nos importa el valor) y el índice del elemento
-  
+  // (en este caso, _ se usa para indicar que no nos importa el valor) y el índice del elemento
+
   // Esperar a que todas las promesas se resuelvan utilizando Promise.all
   const todosLosPokemon = await Promise.all(pokemonesPromesas);
 
@@ -66,38 +66,28 @@ async function buscarNombre(cantidadPokemon, nombre) {
 
   let nombreEncontrado = false;
 
-  for (let i = 1; i <= cantidadPokemon; i++) {
-    // ejecuto función obtenerPokemón
-    const data = await obtenerPokemon(i);
+  if (nombre !== '') {
+    for (let i = 1; i <= cantidadPokemon; i++) {
+      // ejecuto función obtenerPokemón
+      const data = await obtenerPokemon(i);
 
-    const { name } = data;
+      const { name } = data;
 
-    if (nombre.toLowerCase() == name.toLowerCase()) {
-      mostrarPokemonHTML(data);
-      nombreEncontrado = true;
-      break;
+      if (nombre.toLowerCase() == name.toLowerCase()) {
+        mostrarPokemonHTML(data);
+        nombreEncontrado = true;
+        formularioBusqueda.reset();
+        break;
+      }
     }
-  }
 
-  // muestra mensaje de no encontrado
-  if (!nombreEncontrado) {
-    limpiarHTML();
-
-    const contenedorMensaje = document.createElement('DIV');
-    const mensaje = document.createElement('p');
-
-    contenedorMensaje.classList.add(
-      'flex',
-      'flex-col',
-      'items-center',
-      'justify-center'
-    );
-
-    mensaje.classList.add('text-center', 'font-bold', 'text-3xl', 'pt-2');
-    mensaje.textContent = 'No se Ingreso ningun nombre';
-
-    contenedorMensaje.appendChild(mensaje);
-    seccionContenedora.appendChild(contenedorMensaje);
+    // muestra mensaje de no encontrado
+    if (!nombreEncontrado) {
+      formularioBusqueda.reset();
+      mensajeObtenido('No se encontro pokemón buscado');
+    }
+  } else {
+    mensajeObtenido('No se Ingreso ningun nombre');
   }
 }
 
@@ -197,6 +187,39 @@ function limpiarHTML() {
       seccionContenedora.removeChild(seccionContenedora.firstChild);
     }
   }
+}
+
+// función de mensaje personalizado
+function mensajeObtenido(mensajeTexto) {
+  limpiarHTML();
+
+  const contenedorMensaje = document.createElement('DIV');
+  const mensaje = document.createElement('p');
+  const imagenNoEncontrado = document.createElement('img');
+
+  contenedorMensaje.classList.add(
+    'flex',
+    'flex-col',
+    'items-center',
+    'justify-center'
+  );
+
+  imagenNoEncontrado.src = `src/img/no_encontrado.svg`;
+  imagenNoEncontrado.classList.add('w-40', 'mb-2');
+  mensaje.classList.add(
+    'text-center',
+    'font-bold',
+    'text-2xl',
+    'py-2',
+    'px-3',
+    'text-red-600'
+  );
+
+  mensaje.textContent = `${mensajeTexto}`;
+
+  contenedorMensaje.appendChild(imagenNoEncontrado);
+  contenedorMensaje.appendChild(mensaje);
+  seccionContenedora.appendChild(contenedorMensaje);
 }
 
 export { obtenerPokemon, mostrarPokemon, buscarTipoPokemon, buscarNombre };

@@ -20,11 +20,13 @@ import {
   btnFairy,
   btnBusqueda,
   nombreBusqueda,
+  formularioBusqueda,
 } from './referencias.js';
 
 import { mostrarPokemon } from './funciones/funciones.js';
 import { buscarTipoPokemon } from './funciones/funciones.js';
 import { buscarNombre } from './funciones/funciones.js';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   mostrarPokemon(493);
@@ -95,3 +97,4 @@ btnBusqueda.addEventListener("click", (e) => {
   const nombre = nombreBusqueda.value;
   buscarNombre(493, nombre);
 })
+
