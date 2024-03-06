@@ -1,4 +1,5 @@
 import {
+  seccionContenedora,
   btnTodos,
   btnNormal,
   btnFire,
@@ -26,7 +27,7 @@ import {
 import { mostrarPokemon } from './funciones/funciones.js';
 import { buscarTipoPokemon } from './funciones/funciones.js';
 import { buscarNombre } from './funciones/funciones.js';
-
+import { mostrarCardObtenido } from './funciones/funciones.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   mostrarPokemon(493);
@@ -91,10 +92,14 @@ btnFairy.addEventListener('click', () => {
   buscarTipoPokemon(493, 'fairy');
 });
 
-btnBusqueda.addEventListener("click", (e) => {
+btnBusqueda.addEventListener('click', (e) => {
   e.preventDefault();
 
   const nombre = nombreBusqueda.value;
   buscarNombre(493, nombre);
-})
+});
 
+// Cuando se cargue los elemento al contenedor de cards podemos seleccionar cualquier card
+seccionContenedora.addEventListener('click', (evento) => {
+  mostrarCardObtenido(evento);
+});
