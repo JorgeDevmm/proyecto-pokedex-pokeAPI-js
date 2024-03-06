@@ -98,14 +98,11 @@ async function buscarId(idObtenido) {
   for (let i = 1; i <= 493; i++) {
     // ejecuto función obtenerPokemón
     const data = await obtenerPokemon(i);
-
-    console.log(data);
-
     const { id } = data;
 
-    if (idObtenido == id) {
+    if (idObtenido === id) {
       mostrarPokemonHTMLDetallada(data);
-      break;
+      return;
     }
   }
 }
