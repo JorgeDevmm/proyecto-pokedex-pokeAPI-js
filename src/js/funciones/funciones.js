@@ -23,13 +23,20 @@ async function obtenerPokemon(id) {
 
 // función para mostrar varios Pokémon en orden de ID
 async function mostrarPokemon(cantidadPokemón) {
+  // Limpiar el contenido HTML antes de mostrar nuevos Pokémon
   limpiarHTML();
-  for (let i = 1; i <= cantidadPokemón; i++) {
-    // ejecuto función obtenerPokemón
-    const data = await obtenerPokemon(i);
-    console.log(data);
-    mostrarPokemonHTML(data);
-  }
+
+  // Crear un array de promesas utilizando Array.prototype.map
+  const pokemonesPromesas = Array(cantidadPokemón)
+    .fill() // Llenar el array con valores undefined
+    .map((_, i) => obtenerPokemon(i + 1)); // Mapear cada índice a una llamada a obtenerPokemon con el índice incrementado en 1
+    // (en este caso, _ se usa para indicar que no nos importa el valor) y el índice del elemento
+  
+  // Esperar a que todas las promesas se resuelvan utilizando Promise.all
+  const todosLosPokemon = await Promise.all(pokemonesPromesas);
+
+  // Mostrar cada Pokémon en el HTML utilizando forEach
+  todosLosPokemon.forEach((data) => mostrarPokemonHTML(data));
 }
 
 // función para mostrar varios Pokémon en orden de ID
@@ -47,7 +54,7 @@ async function buscarTipoPokemon(cantidadPokemón, tipo) {
       },
     } = data;
 
-    if (tipo == nameTipo) {
+    if (tipo.toLowerCase() == nameTipo.toLowerCase()) {
       mostrarPokemonHTML(data);
     }
   }
@@ -56,15 +63,41 @@ async function buscarTipoPokemon(cantidadPokemón, tipo) {
 // función para mostrar varios Pokémon en orden de ID
 async function buscarNombre(cantidadPokemon, nombre) {
   limpiarHTML();
+
+  let nombreEncontrado = false;
+
   for (let i = 1; i <= cantidadPokemon; i++) {
     // ejecuto función obtenerPokemón
     const data = await obtenerPokemon(i);
 
     const { name } = data;
 
-    if (nombre.toLowerCase() == name) {
+    if (nombre.toLowerCase() == name.toLowerCase()) {
       mostrarPokemonHTML(data);
+      nombreEncontrado = true;
+      break;
     }
+  }
+
+  // muestra mensaje de no encontrado
+  if (!nombreEncontrado) {
+    limpiarHTML();
+
+    const contenedorMensaje = document.createElement('DIV');
+    const mensaje = document.createElement('p');
+
+    contenedorMensaje.classList.add(
+      'flex',
+      'flex-col',
+      'items-center',
+      'justify-center'
+    );
+
+    mensaje.classList.add('text-center', 'font-bold', 'text-3xl', 'pt-2');
+    mensaje.textContent = 'No se Ingreso ningun nombre';
+
+    contenedorMensaje.appendChild(mensaje);
+    seccionContenedora.appendChild(contenedorMensaje);
   }
 }
 
@@ -101,7 +134,7 @@ async function mostrarPokemonHTML(dataRecibida) {
   // Crear la pokeball
   const pokeball = document.createElement('img');
   pokeball.src = `https://img.icons8.com/external-those-icons-lineal-color-those-icons/48/external-pokeball-video-games-those-icons-lineal-color-those-icons`;
-  pokeball.classList.add('absolute', 'top-1', 'left-1', 'z-10',"w-8");
+  pokeball.classList.add('absolute', 'top-1', 'left-1', 'z-10', 'w-8');
 
   // Añadir la pokeball al contenedor principal
   card.appendChild(pokeball);
