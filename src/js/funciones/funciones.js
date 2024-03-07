@@ -167,7 +167,7 @@ async function mostrarPokemonHTML(dataRecibida) {
     'rounded-t-lg',
     'border',
     'border-solid',
-    'border-black',
+    'border-[#435056]',
     'border-2',
     'w-80',
     'flex',
@@ -287,7 +287,7 @@ async function mostrarPokemonHTMLDetallada(dataRecibida) {
     'rounded-t-lg',
     'border',
     'border-solid',
-    'border-black',
+    'border-[#435056]',
     'border-2',
     'w-80',
     'flex',
@@ -429,14 +429,6 @@ function mostrarCardObtenido(evento) {
     // función que busca por id
     buscarId(id);
   }
-}
-
-// Función para crear y devolver un nuevo elemento de spinner
-function spinner() {
-  const spinner = document.createElement('DIV');
-  // agrego clase de estilo spinner y para centrar x & y
-  spinner.classList.add('loader');
-  return spinner;
 }
 
 export {
