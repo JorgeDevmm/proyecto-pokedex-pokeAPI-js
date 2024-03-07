@@ -112,7 +112,11 @@ async function mostrarPokemonHTML(dataRecibida) {
   const {
     name,
     id,
-    sprites: { front_default },
+    sprites: {
+      other: {
+        'official-artwork': { front_default },
+      },
+    },
     types: {
       0: {
         type: { name: nameTipo },
@@ -160,13 +164,30 @@ async function mostrarPokemonHTML(dataRecibida) {
     'bg-cover',
     'bg-center',
     'bg-sky-300',
-    'rounded-t-lg'
+    'rounded-t-lg',
+    'border',
+    'border-solid',
+    'border-black',
+    'border-2',
+    'w-80',
+    'flex',
+    'flex-col',
+    'items-center',
+    'justify-center'
   );
 
   card.appendChild(cardImagen);
 
+  // parrafo numero
+  const cardNumeroImagen = document.createElement('p');
+  cardNumeroImagen.classList.add('text-8xl', 'card__numero', 'text-gray-200');
+  cardNumeroImagen.textContent = `#${id.toString().padStart(3, '0')}`;
+
+  cardImagen.appendChild(cardNumeroImagen);
+
+  // imagen
   const cardImg = document.createElement('img');
-  cardImg.classList.add('card__img', 'w-60');
+  cardImg.classList.add('card__img', 'w-44', 'absolute');
   cardImg.src = front_default;
 
   cardImagen.appendChild(cardImg);
@@ -211,7 +232,11 @@ async function mostrarPokemonHTMLDetallada(dataRecibida) {
     weight /*peso */,
     name,
     id,
-    sprites: { front_default },
+    sprites: {
+      other: {
+        'official-artwork': { front_default },
+      },
+    },
     types: {
       0: {
         type: { name: nameTipo },
@@ -259,13 +284,29 @@ async function mostrarPokemonHTMLDetallada(dataRecibida) {
     'bg-cover',
     'bg-center',
     'bg-sky-300',
-    'rounded-t-lg'
+    'rounded-t-lg',
+    'border',
+    'border-solid',
+    'border-black',
+    'border-2',
+    'w-80',
+    'flex',
+    'flex-col',
+    'items-center',
+    'justify-center'
   );
 
   card.appendChild(cardImagen);
 
+  // parrafo numero
+  const cardNumeroImagen = document.createElement('p');
+  cardNumeroImagen.classList.add('text-9xl', 'card__numero', 'text-gray-200');
+  cardNumeroImagen.textContent = `#${id.toString().padStart(3, '0')}`;
+
+  cardImagen.appendChild(cardNumeroImagen);
+
   const cardImg = document.createElement('img');
-  cardImg.classList.add('card__img', 'w-60');
+  cardImg.classList.add('card__img', 'w-44', 'absolute');
   cardImg.src = front_default;
 
   cardImagen.appendChild(cardImg);
@@ -388,6 +429,14 @@ function mostrarCardObtenido(evento) {
     // función que busca por id
     buscarId(id);
   }
+}
+
+// Función para crear y devolver un nuevo elemento de spinner
+function spinner() {
+  const spinner = document.createElement('DIV');
+  // agrego clase de estilo spinner y para centrar x & y
+  spinner.classList.add('loader');
+  return spinner;
 }
 
 export {
